@@ -1,3 +1,4 @@
+# https://github.com/lyx-123321/AFKforEDRing
 import ctypes
 from ctypes import wintypes
 import time
@@ -104,30 +105,62 @@ D = 0x44
 
 E = 0x45 #进入赐福点
 Q = 0x51 #退出赐福点
+G = 0x47 #graph
 
 Z = 0x5A #技能
 
-def shuaguai():
-    time.sleep(3)
+def quitm():
     PressKey(Q)
     time.sleep(0.1)
     ReleaseKey(Q)
-    time.sleep(3)
+
+def comfirm():
+    PressKey(E)
+    time.sleep(0.1)
+    ReleaseKey(E)
+
+def goforward(a):
     PressKey(W)
-    time.sleep(3.7)
+    time.sleep(a)
     ReleaseKey(W)
+
+def goback(a):
+    PressKey(S)
+    time.sleep(a)
+    ReleaseKey(S)
+
+def goleft(a):
+    PressKey(A)
+    time.sleep(a)
+    ReleaseKey(A)
+
+def skill():
     PressKey(Z)
     time.sleep(0.5)
     ReleaseKey(Z)
-    time.sleep(5)
-    PressKey(S)
-    time.sleep(4.1)
-    ReleaseKey(S)
-    time.sleep(0.5)
-    PressKey(E)
-    time.sleep(0.2)
-    ReleaseKey(E)
-    time.sleep(3)
 
+def opengraph():
+    PressKey(G)
+    time.sleep(0.1)
+    ReleaseKey(G)
+    time.sleep(1)
+
+def shuaguai2():
+    time.sleep(3)
+    goforward(4)
+    goleft(1)
+    goforward(1)
+    skill()
+    time.sleep(6)
+    opengraph()
+    goback(0.05)
+    time.sleep(1)
+    comfirm()
+    time.sleep(1)
+    comfirm()
+    time.sleep(5)
+
+time.sleep(3)
+quitm()
 while(1):
-    shuaguai()
+    shuaguai2()
